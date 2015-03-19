@@ -14,18 +14,20 @@ keystone.init({
 
 	'name': 'Trail',
 	'brand': 'Trail',
-	
+
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': 'wJLc7Gi@"qx1k+lXsIeqJp!NurGZ,%!xMF,VDn"#`%85>4/(DPX!k#3}O8s%X*kH'
+	'cookie secret': 'wJLc7Gi@"qx1k+lXsIeqJp!NurGZ,%!xMF,VDn"#`%85>4/(DPX!k#3}O8s%X*kH',
+	'cloudinary config': 'cloudinary://874592858159134:dkOTzEMiF1qWZpZarX8FgOd3AuE@arch',
+    'port': '3004'
 
 });
 

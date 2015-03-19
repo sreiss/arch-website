@@ -3,50 +3,50 @@ extends ../layouts/default
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		h2: a(href='/blog/post/' + post.slug)= post.title
-		p.lead.text-muted Posted 
+		p.lead.text-muted Publié
 			if post.publishedDate
-				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				|&nbsple #{post._.publishedDate.format('DD/MM/YYYY')}
 			if post.categories && post.categories.length
-				| in 
+				|&nbspdans&nbsp
 				each cat, i in post.categories
 					a(href='/blog/' + cat.key)= cat.name
 					if i < post.categories.length - 1
-						| , 
+						|&nbsp,
 					else
-						|  
+						|&nbsp
 			if post.author
-				| by #{post.author.name.first}
+				|&nbsppar #{post.author.name.first}
 		if post.image.exists
 			img(src=post._.image.fit(160,160)).img.pull-right
 		p!= post.content.brief
 		if post.content.extended
-			p.read-more: a(href='/blog/post/' + post.slug) Read more...
+			p.read-more: a(href='/blog/post/' + post.slug) Lire plus...
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Blog'
+		h1= data.category ? data.category.name : 'Actualités'
 
 block content
 	.container: .row
 		.col-sm-8.col-md-9
 			if filters.category && !data.category
-				h3.text-muted Invalid Category.
+				h3.text-muted Catégorie invalide
 			else
 				if data.posts.results.length
 					if data.posts.totalPages > 1
-						h4.text-weight-normal Showing 
+						h4.text-weight-normal Affiche
 							strong #{data.posts.first}
-							|  to 
+							|&nbsp&nbspde
 							strong #{data.posts.last}
-							|  of 
+							|&nbsp&nbspsur
 							strong #{data.posts.total}
-							|  posts.
+							|&nbsp&nbsparticles.
 					else
-						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+						h4.text-weight-normal #{utils.plural(data.posts.results.length, '* articles')}.
 					.blog
 						each post in data.posts.results
 							+post(post)
-					
+
 					if data.posts.totalPages > 1
 						ul.pagination
 							if data.posts.previous
@@ -62,10 +62,10 @@ block content
 								li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 				else
 					if data.category
-						h3.text-muted There are no posts in the category #{data.category.name}.
+						h3.text-muted Il n'y a pas d'article dans cette catégorie #{data.category.name}.
 					else
-						h3.text-muted There are no posts yet.
-		
+						h3.text-muted Il n'y a pas d'article
+
 		if data.categories.length
 			.col-sm-4.col-md-3
 				h2 Categories
