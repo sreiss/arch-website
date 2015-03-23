@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Set locals
-	locals.section = 'blog';
+	locals.section = 'pages';
 	locals.filters = {
 		page: req.params.page
 	};
@@ -14,16 +14,16 @@ exports = module.exports = function(req, res) {
 		pages: []
 	};
 
-	// Load the current post
+	// Load the current page
 	view.on('init', function(next) {
 
 		var q = keystone.list('Page').model.findOne({
-			state: 'published',
+			state: 'publié',
 			slug: locals.filters.page
-		}).populate('author pageSections');
+		}).populate('pageSections');
 
 		q.exec(function(err, result) {
-			locals.data.post = result;
+			locals.data.page = result;
 			next(err);
 		});
 

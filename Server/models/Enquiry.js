@@ -8,20 +8,21 @@ var keystone = require('keystone'),
 
 var Enquiry = new keystone.List('Enquiry', {
 	nocreate: true,
-	noedit: true
+	noedit: true,
+    label: 'Messages'
 });
 
 Enquiry.add({
-	name: { type: Types.Name, required: true },
+	name: { type: Types.Name, required: true, label: 'Nom' },
 	email: { type: Types.Email, required: true },
-	phone: { type: String },
-	enquiryType: { type: Types.Select, options: [
+	phone: { type: String, label: 'Telephone' },
+	enquiryType: { type: Types.Select, label: 'Type', options: [
 		{ value: 'message', label: 'Simple message' },
 		{ value: 'question', label: 'Question' },
 		{ value: 'other', label: 'Autre' }
 	] },
 	message: { type: Types.Markdown, required: true },
-	createdAt: { type: Date, default: Date.now }
+	createdAt: { type: Date, default: Date.now , label: 'Crée le'}
 });
 
 Enquiry.defaultSort = '-createdAt';

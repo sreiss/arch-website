@@ -8,20 +8,21 @@ var keystone = require('keystone'),
 
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true }
+	autokey: { path: 'slug', from: 'title', unique: true },
+    label: 'Articles'
 });
 
 Post.add({
-	title: { type: String, required: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	image: { type: Types.CloudinaryImage },
+	title: { type: String, required: true, label: 'Titre' },
+	state: { type: Types.Select,  options: 'brouillon, publié, archivé', default: 'brouillon', index: true , label: 'Statut' },
+	author: { type: Types.Relationship, ref: 'User', index: true , label: 'Auteur'},
+	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'publié' } , label: 'Date de publication' },
+	image: { type: Types.CloudinaryImage , label: 'Image' },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+		brief: { type: Types.Html, wysiwyg: true, height: 150, label: 'Description' },
+		extended: { type: Types.Html, wysiwyg: true, height: 400, label: 'Contenu' }
 	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true , label: 'Catégories'}
 });
 
 Post.schema.virtual('content.full').get(function() {

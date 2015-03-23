@@ -6,14 +6,16 @@ var keystone = require('keystone'),
  * ==========
  */
 
-var User = new keystone.List('User');
+var User = new keystone.List('User',{
+    label: 'Utilisateurs'
+});
 
 User.add({
-	name: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, index: true, label: 'Nom' },
 	email: { type: Types.Email, initial: true, required: true, index: true },
-	password: { type: Types.Password, initial: true, required: true }
+	password: { type: Types.Password, initial: true, required: true, lebel: 'Mot de passe' }
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true }
+	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true, label: 'Administrateur' }
 });
 
 // Provide access to Keystone

@@ -9,7 +9,7 @@
  */
 
 var _ = require('underscore');
-
+var keystone = require('keystone');
 
 /**
 	Initialises the standard view locals
@@ -19,9 +19,9 @@ var _ = require('underscore');
 	or replace it with your own templates / logic.
 */
 
-exports.initLocals = function(req, res, next) {
+exports.initLocals = function(req, res,next){
 
-	var locals = res.locals;
+    var locals = res.locals;
 
 	locals.navLinks = [
 		{ label: 'Accueil',		key: 'home',		href: '/' },
@@ -36,7 +36,15 @@ exports.initLocals = function(req, res, next) {
 
 };
 
+exports.initLocalsBis = function(res,res,next) {
 
+    var q = keystone.list('Page').model.find().where('state', 'publié').sort('-publishedDate').select('slug title');
+
+    q.exec(function(err, results) {
+        res.locals.navLinksBis = results;
+        next(err);
+    });
+};
 /**
 	Fetches and clears the flashMessages before a view is rendered
 */
@@ -64,7 +72,7 @@ exports.flashMessages = function(req, res, next) {
 exports.requireUser = function(req, res, next) {
 
 	if (!req.user) {
-		req.flash('error', 'Please sign in to access this page.');
+		req.flash('error', 'Connectez vous pour accéder à cette page');
 		res.redirect('/keystone/signin');
 	} else {
 		next();

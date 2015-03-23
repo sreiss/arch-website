@@ -7,14 +7,15 @@ var keystone = require('keystone'),
  */
 
 var Gallery = new keystone.List('Gallery', {
-	autokey: { from: 'name', path: 'key', unique: true }
+	autokey: { from: 'name', path: 'key', unique: true },
+    label: 'Galeries'
 });
 
 Gallery.add({
-	name: { type: String, required: true },
-	publishedDate: { type: Date, default: Date.now },
-	heroImage: { type: Types.CloudinaryImage },
-	images: { type: Types.CloudinaryImages }
+	name: { type: String, required: true, label: 'Nom' },
+	publishedDate: { type: Date, default: Date.now, label: 'Date de publication' },
+	heroImage: { type: Types.CloudinaryImage, label: 'Image principale'  },
+	images: { type: Types.CloudinaryImages, label: 'Images' }
 });
 
 Gallery.register();
