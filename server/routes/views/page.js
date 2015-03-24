@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Set locals
-	locals.section = 'pages';
+
 	locals.filters = {
 		page: req.params.page
 	};
@@ -22,8 +22,11 @@ exports = module.exports = function(req, res) {
 			slug: locals.filters.page
 		}).populate('pageSections');
 
+
+
 		q.exec(function(err, result) {
 			locals.data.page = result;
+            locals.section = result.title;
 			next(err);
 		});
 

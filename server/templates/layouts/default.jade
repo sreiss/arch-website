@@ -56,7 +56,7 @@ html
                             each link in navLinks
                                 li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
                             each link in navLinksBis
-                                li(class=(section == link.slug ? 'active' : null)): a(href='/pages/'+link.slug)= link.title
+                                li(class=(section == link.title ? 'active' : null)): a(href='/pages/'+link.slug)= link.title
                         ul.nav.navbar-nav.navbar-right
                             if user
                                 if user.canAccessKeystone
