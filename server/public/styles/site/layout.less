@@ -48,6 +48,7 @@ a:hover{
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #FFF;
+    background-color: #ff7043;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -58,7 +59,7 @@ a:hover{
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: #555;
+    color: #FFF;
     background-color: #ff7043;
 }
 /* caret */
@@ -122,4 +123,21 @@ a:hover{
   line-height: normal;
   color: #CCC;
   font-size: 50px;
+}
+
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+  background-color : #ff7043;
+}
+
+.carret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
 }

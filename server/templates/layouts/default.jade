@@ -55,8 +55,15 @@ html
                         ul.nav.navbar-nav.navbar-left
                             each link in navLinks
                                 li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-                            each link in navLinksBis
+                            if(navLinksBis.length == 1)
                                 li(class=(section == link.title ? 'active' : null)): a(href='/pages/'+link.slug)= link.title
+                            if(navLinksBis.length > 2)
+                                li.dropdown
+                                    a.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-expanded='false') Plus...
+                                        span.carret
+                                        ul.dropdown-menu(role="menu")
+                                            each link in navLinksBis
+                                                li(class=(section == link.title ? 'active' : null)): a(href='/pages/'+link.slug)= link.title
                         ul.nav.navbar-nav.navbar-right
                             if user
                                 if user.canAccessKeystone
