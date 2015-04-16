@@ -11,7 +11,7 @@ Pour installer KeystoneJS, il vous faudra :
 
 
 Note
-Il faut éditer le fichier 'arch-website\server\node_modules\keystone\lib\inotNav.js'
+Il faut éditer le fichier 'arch-website\server\node_modules\keystone\lib\core\initNav.js'
 
 label:keystone.list(section[0]).label
 //label: nav.flat ? keystone.list(section[0]).label : utils.keyToLabel(key)

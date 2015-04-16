@@ -14,10 +14,7 @@ var Page = new keystone.List('Page', {
 Page.add({
 	title: { type: String, required: true, label: 'Titre' },
 	state: { type: Types.Select, options: 'brouillon, publié, archivé', default: 'brouillon', index: true, label: 'Statut' },
-	content : {type: Types.Html, wysiwyg: true, height: 400, label: 'Contenu' },
-    pageSections: { type: Types.Relationship, ref: 'PageSection', many: true, label: 'Sections de la page' }
-});
+	content : {type: Types.Html, wysiwyg: true, height: 400, label: 'Contenu' }});
 
-Page.relationship({ ref: 'PageSection', path: 'page-sections' });
 Page.defaultColumns = 'title, state';
 Page.register();

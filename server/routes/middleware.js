@@ -38,7 +38,7 @@ exports.initLocals = function(req, res,next){
 
 exports.initLocalsBis = function(res,res,next) {
 
-    var q = keystone.list('Page').model.find().where('state', 'publié').sort('-publishedDate').select('slug title');
+    var q = keystone.list('Page').model.find().where('state', 'publié').select('slug title');
 
     q.exec(function(err, results) {
         res.locals.navLinksBis = results;
