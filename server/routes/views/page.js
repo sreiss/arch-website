@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Page').model.findOne({
 			state: 'publié',
 			slug: locals.filters.page
-		}).populate('pageSections');
+		});
 
 
 
