@@ -2,7 +2,7 @@ extends ../layouts/default
 
 block intro
 	.container
-		h1 Contactez nous
+		h1 Contactez-nous
 		
 block content
 	.container
@@ -19,8 +19,8 @@ block content
 						label Email
 						input(type='email', name='email', value=formData.email).form-control
 					.form-group
-						label Telephone
-						input(type='text', name='phone', value=formData.phone, placeholder='(optionel)').form-control
+						label Téléphone
+						input(type='text', name='phone', value=formData.phone, placeholder='(optionnel)').form-control
 					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
 						label Objet
 						select(name='enquiryType').form-control
@@ -29,6 +29,6 @@ block content
 								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
 					.form-group(class=validationErrors.message ? 'has-error' : null)
 						label Message
-						textarea(name='message', placeholder='Laisser nous un message...' rows=4).form-control= formData.message
+						textarea(name='message', placeholder='Laissez nous un message...' rows=4).form-control= formData.message
 					.form-actions
 						button(type='submit').btn.btn-primary Envoyer
