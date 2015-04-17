@@ -24,9 +24,8 @@ exports.initLocals = function(req, res,next){
     var locals = res.locals;
 
 	locals.navLinks = [
-		{ label: 'Accueil',		key: 'home',		href: '/' },
 		{ label: 'Actualités',	key: 'blog',		href: '/blog' },
-		{ label: 'Galeries',	key: 'gallery',		href: '/gallery' },
+		{ label: 'Photos',	    key: 'gallery',		href: '/gallery' },
 		{ label: 'Contact',		key: 'contact',		href: '/contact' }
 	];
 
@@ -36,7 +35,7 @@ exports.initLocals = function(req, res,next){
 
 };
 
-exports.initLocalsBis = function(res,res,next) {
+exports.initLocalsBis = function(req,res,next) {
 
     var q = keystone.list('Page').model.find().where('state', 'publié').select('slug title');
 
