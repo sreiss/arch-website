@@ -27,7 +27,18 @@ keystone.init({
 	'user model': 'User',
 	'cookie secret': 'wJLc7Gi@"qx1k+lXsIeqJp!NurGZ,%!xMF,VDn"#`%85>4/(DPX!k#3}O8s%X*kH',
 	'cloudinary config': 'cloudinary://874592858159134:dkOTzEMiF1qWZpZarX8FgOd3AuE@arch',
-    'port': '3023'
+    'port': '3023',
+    'wysiwyg override toolbar': false,
+    'wysiwyg menubar': true,
+    'wysiwyg skin': 'lightgray',
+    'wysiwyg additional buttons': 'searchreplace visualchars,'
+    + ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
+    +' emoticons media, preview print ',
+    'wysiwyg additional plugins': 'example, table, advlist, anchor,'
+    + ' autolink, autosave, bbcode, charmap, contextmenu, '
+    + ' directionality, emoticons, fullpage, hr, media, pagebreak,'
+    + ' paste, preview, print, searchreplace, textcolor,'
+    + ' visualblocks, visualchars, wordcount'
 
 });
 

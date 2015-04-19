@@ -21,7 +21,7 @@ Enquiry.add({
 		{ value: 'question', label: 'Question' },
 		{ value: 'other', label: 'Autre' }
 	] },
-	message: { type: Types.Markdown, required: true },
+	message: { type: Types.Html, required: true },
 	createdAt: { type: Date, default: Date.now , label: 'Crée le'}
 });
 
