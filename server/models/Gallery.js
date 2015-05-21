@@ -18,4 +18,6 @@ Gallery.add({
 	images: { type: Types.CloudinaryImages, label: 'Images' }
 });
 
+
+
 Gallery.register();
