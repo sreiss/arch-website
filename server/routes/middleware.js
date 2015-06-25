@@ -30,7 +30,7 @@ exports.initLocals = function(req, res,next){
 	];
 
 	locals.user = req.user;
-    locals.loginUrl = this.loginUrl();
+    locals.loginUrl = res.loginUrl();
 
 	next();
 };
