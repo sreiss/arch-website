@@ -31,7 +31,6 @@ exports.initLocals = function(req, res,next){
 
 	locals.user = req.user;
     locals.loginUrl = req.loginUrl;
-    console.log(locals.loginUrl);
 
 	next();
 };
@@ -85,7 +84,6 @@ exports.requireUser = function(req, res, next)
 exports.loginUrl = function(req,res, next)
 {
     req.loginUrl = window.location;
-    console.log(req.loginUrl);
 
     next();
 }

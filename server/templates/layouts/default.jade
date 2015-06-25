@@ -66,6 +66,10 @@ html
                                             each link in navLinksBis
                                                 li(class=(section == link.title ? 'active' : null)): a(href='/pages/'+link.slug)= link.title
                         ul.nav.navbar-nav.navbar-right
+
+                            li: a(href='http://acrobatt-vm11.psi.ad.unistra.fr:3021/#/') Espace membre
+
+                            
                             if user
                                 if user.canAccessKeystone
                                     li: a(href='/keystone') Administration
