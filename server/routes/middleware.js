@@ -30,9 +30,9 @@ exports.initLocals = function(req, res,next){
 	];
 
 	locals.user = req.user;
+    locals.loginUrl = loginUrl();
 
 	next();
-
 };
 
 exports.initLocalsBis = function(req,res,next) {
@@ -68,13 +68,20 @@ exports.flashMessages = function(req, res, next) {
 	Prevents people from accessing protected pages when they're not signed in
  */
 
-exports.requireUser = function(req, res, next) {
-
-	if (!req.user) {
+exports.requireUser = function(req, res, next)
+{
+	if (!req.user)
+    {
 		req.flash('error', 'Connectez vous pour accéder à cette page');
 		res.redirect('/keystone/signin');
-	} else {
+	}
+    else
+    {
 		next();
 	}
-
 };
+
+exports.loginUrl = function()
+{
+    console.log(window.location);
+}
